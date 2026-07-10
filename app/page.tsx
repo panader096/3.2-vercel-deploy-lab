@@ -1,5 +1,10 @@
 export default function Home() {
   const greeting = process.env.NEXT_PUBLIC_GREETING ?? "Hello from Vercel";
+  const today = new Date().toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
 
   return (
     <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
@@ -7,6 +12,7 @@ export default function Home() {
         <h1 className="text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
           {greeting}
         </h1>
+        <p className="mt-4 text-lg text-zinc-600 dark:text-zinc-400">{today}</p>
       </main>
     </div>
   );
